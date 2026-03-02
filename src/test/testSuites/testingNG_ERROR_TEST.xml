@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Suite1" verbose="1">
+    <listeners>
+        <listener class-name="E2E.TestComponents.Listeners"/>
+    </listeners>
+    <test name="Errors_Only">
+        <classes>
+            <class name="E2E.FullTest.ErrorTest">
+                <methods>
+                    <include name="errorValidation"/>
+                    <include name="testToFail"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

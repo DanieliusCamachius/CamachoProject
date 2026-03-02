@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite parallel="tests" name="Suite1" verbose="1">
+    
+    <groups>
+        <run>
+            <include name="ErrorHandling"/>
+        </run>
+        
+    </groups>
+    
+    <test name="Regression_ALL_TESTS">
+        <packages>
+            <package name="E2E.FullTest"/>
+        </packages>
+    </test>
+</suite>
