@@ -54,7 +54,7 @@ public class BaseTest extends BaseTestProp {
     @DataProvider
     public Object[][] getData() throws IOException {
         // src/main/java/E2E_Shopping/resources/reports
-        List<HashMap<String, String>> jsonDataToMap = getJsonDataToMap(System.getProperty("user.dir")+"/src/test/java/data/PurchaseOrder.json"); // Lista com 2 elementos:
+        List<HashMap<String, String>> jsonDataToMap = getJsonDataToMap(System.getProperty("user.dir")+"src/test/resources/TestData/PurchaseOrder.json"); // Lista com 2 elementos:
                                                                                                                                                         // index 0 → HashMap do primeiro cenário <chave,valor>
                                                                                                                                                         // index 1 → HashMap do segundo cenário <chave,valor>
         return new Object[][] {{jsonDataToMap.get(0)},{jsonDataToMap.get(1)}}; // 2 cenarios

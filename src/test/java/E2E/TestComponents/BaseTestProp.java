@@ -1,6 +1,9 @@
 package E2E.TestComponents;
 
+import E2E_Shopping.POM.CartPage;
+import E2E_Shopping.POM.CheckOutPage;
 import E2E_Shopping.POM.LoginPage;
+import E2E_Shopping.POM.ProductCatalog;
 import io.cucumber.core.internal.com.fasterxml.jackson.core.type.TypeReference;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
@@ -26,6 +29,9 @@ public class BaseTestProp {
 
     public WebDriver driver; // global variable
     public LoginPage loginPage;
+    public ProductCatalog productCatalog;
+    public CartPage cartPage;
+    public CheckOutPage checkOutPage;
 
     public WebDriver initializeDriver() throws IOException {
         // Properties class can read global properties
@@ -61,6 +67,11 @@ public class BaseTestProp {
         loginPage.goTo();
     }
 
+    public void  launchShoppingObjects(){
+        productCatalog = new ProductCatalog(driver);
+        cartPage = new CartPage(driver);
+        checkOutPage =new CheckOutPage(driver);
+    }
     public String getScreenshot(String testCaseName,WebDriver driver) throws IOException {
         TakesScreenshot ts = (TakesScreenshot) driver;
         File source = ts.getScreenshotAs(OutputType.FILE);
