@@ -40,7 +40,7 @@ public class BaseTestProp {
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/E2E_Shopping/resources/GlobalData.properties");
         prop.load(fis);
 
-        String browserName = System.getProperty("browser")!=null ? System.getProperty("browser") : prop.getProperty("browser");
+        String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
 
         if (browserName.contains("chrome")) {
             ChromeOptions options = new ChromeOptions();
@@ -48,7 +48,7 @@ public class BaseTestProp {
                 options.addArguments("headless");
             }
             driver = new ChromeDriver(options);
-            driver.manage().window().setSize(new Dimension(1920,1080)); // 4 headless mode
+            driver.manage().window().setSize(new Dimension(1920, 1080)); // 4 headless mode
 
         } else if (browserName.equalsIgnoreCase("edge")) {
             // driver = new EdgeDriver();
@@ -67,15 +67,16 @@ public class BaseTestProp {
         loginPage.goTo();
     }
 
-    public void  launchShoppingObjects(){
+    public void launchShoppingObjects() {
         productCatalog = new ProductCatalog(driver);
         cartPage = new CartPage(driver);
-        checkOutPage =new CheckOutPage(driver);
+        checkOutPage = new CheckOutPage(driver);
     }
-    public String getScreenshot(String testCaseName,WebDriver driver) throws IOException {
+
+    public String getScreenshot(String testCaseName, WebDriver driver) throws IOException {
         TakesScreenshot ts = (TakesScreenshot) driver;
         File source = ts.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(source, new File(System.getProperty("user.dir")+"//reports//" + testCaseName + ".png"));
+        FileUtils.copyFile(source, new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png"));
         return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
     }
 

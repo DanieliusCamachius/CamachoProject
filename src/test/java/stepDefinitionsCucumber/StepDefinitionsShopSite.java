@@ -46,4 +46,10 @@ public class StepDefinitionsShopSite extends BaseTestProp {
         Assert.assertTrue(message.equalsIgnoreCase(expectedMessage));
         driver.close();
     }
+
+    @Then("{string} message is displayed on Login Page")
+    public void messageIsDisplayedOnLoginPage(String expectedMessage) {
+        Assert.assertEquals(expectedMessage, loginPage.checkForErrorMessage());
+        driver.close();
+    }
 }
