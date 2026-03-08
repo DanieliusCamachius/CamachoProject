@@ -4,6 +4,7 @@ import E2E_Shopping.POM.CartPage;
 import E2E_Shopping.POM.CheckOutPage;
 import E2E_Shopping.POM.LoginPage;
 import E2E_Shopping.POM.ProductCatalog;
+import FruitTableDev.FruitPOM.FruitTable;
 import io.cucumber.core.internal.com.fasterxml.jackson.core.type.TypeReference;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
@@ -32,6 +33,7 @@ public class BaseTestProp {
     public ProductCatalog productCatalog;
     public CartPage cartPage;
     public CheckOutPage checkOutPage;
+    public FruitTable fruitTable;
 
     public WebDriver initializeDriver() throws IOException {
         // Properties class can read global properties
@@ -65,6 +67,12 @@ public class BaseTestProp {
         driver = initializeDriver();
         loginPage = new LoginPage(driver);
         loginPage.goTo();
+    }
+
+    public void launchFruitApplication() throws IOException {
+        driver = initializeDriver();
+        fruitTable= new FruitTable(driver);
+        fruitTable.goTo();
     }
 
     public void launchShoppingObjects() {
