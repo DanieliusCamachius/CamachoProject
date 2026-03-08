@@ -1,22 +1,16 @@
 package E2E.FullTest;
 
-import E2E.TestComponents.BaseTestProp;
+import E2E.TestComponents.BaseTestPropNG;
 import E2E_Shopping.POM.*;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 
-public class BaseTest extends BaseTestProp {
+public class BaseTest extends BaseTestPropNG {
     String productName = "ZARA COAT 3";
 
     @Test(dataProvider="getData",groups="Purchase")

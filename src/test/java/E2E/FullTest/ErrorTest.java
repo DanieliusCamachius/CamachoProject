@@ -1,17 +1,15 @@
 package E2E.FullTest;
 
-import E2E.TestComponents.BaseTestProp;
+import E2E.TestComponents.BaseTestPropNG;
 import E2E.TestComponents.Retry;
 import E2E_Shopping.POM.CartPage;
-import E2E_Shopping.POM.CheckOutPage;
-import E2E_Shopping.POM.ConfirmationPage;
 import E2E_Shopping.POM.ProductCatalog;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class ErrorTest extends BaseTestProp {
+public class ErrorTest extends BaseTestPropNG {
     @Test(groups = {"ErrorHandling"})
     public void errorValidation() {
 

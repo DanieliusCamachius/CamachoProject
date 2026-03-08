@@ -5,10 +5,10 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features= {
-                "src/test/resources/features/CucumberFruits/submitOrderCucumber.feature"
+                "src/test/resources/features/CucumberFruits/fruitTable.feature"
         },
         tags="@tag",
-        glue="stepDefinitionsCucumber",
+        glue={"stepDefinitionsCucumber","E2E.CucumberHooks"},
         monochrome = true, //reporting
         plugin = {"html:reports/CucumberReporter/cucumber.html"}
 )

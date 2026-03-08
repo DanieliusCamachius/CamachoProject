@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
-public class BaseTestProp {
+public class BaseTestPropNG {
 
     public WebDriver driver; // global variable
     public LoginPage loginPage;
@@ -62,11 +62,16 @@ public class BaseTestProp {
         return driver;
     }
 
-    @BeforeMethod
+    @BeforeMethod // testNG
     public void launchApplication() throws IOException {
         driver = initializeDriver();
         loginPage = new LoginPage(driver);
         loginPage.goTo();
+    }
+
+    @AfterMethod // testNG
+    public void tearDown() {
+        driver.quit();
     }
 
     public void launchFruitApplication() throws IOException {
@@ -88,10 +93,7 @@ public class BaseTestProp {
         return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
     }
 
-    @AfterMethod
-    public void tearDown() {
-        driver.close();
-    }
+
 
     public List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException {
         //read json to string

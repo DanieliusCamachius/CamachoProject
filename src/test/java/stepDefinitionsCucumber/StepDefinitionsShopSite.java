@@ -1,8 +1,7 @@
 package stepDefinitionsCucumber;
 
-import E2E.TestComponents.BaseTestProp;
+import E2E.TestComponents.BaseTestPropCucumber;
 import E2E_Shopping.POM.*;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,12 +9,12 @@ import org.testng.Assert;
 
 import java.io.IOException;
 
-public class StepDefinitionsShopSite extends BaseTestProp {
+public class StepDefinitionsShopSite extends BaseTestPropCucumber {
     public ConfirmationPage confirmationPage;
 
     @Given("I landed on Ecommerce Page")
     public void goToLoginPage() throws IOException {
-        launchApplication();
+        launchShoppingApplication();
         launchShoppingObjects();
 
         loginPage.goTo(); /**CHECK IF NEEDED**/
@@ -44,12 +43,12 @@ public class StepDefinitionsShopSite extends BaseTestProp {
     public void checkCheckoutMessage(String expectedMessage) {
         String message = confirmationPage.getConfirmationMessage();
         Assert.assertTrue(message.equalsIgnoreCase(expectedMessage));
-        driver.close();
+        driver.close(); // TODO
     }
 
     @Then("{string} message is displayed on Login Page")
     public void messageIsDisplayedOnLoginPage(String expectedMessage) {
         Assert.assertEquals(expectedMessage, loginPage.checkForErrorMessage());
-        driver.close();
+        driver.close(); //TODO add Hooks
     }
 }

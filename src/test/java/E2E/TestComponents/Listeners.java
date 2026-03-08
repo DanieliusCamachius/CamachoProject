@@ -11,7 +11,7 @@ import org.testng.ITestResult;
 
 import java.io.IOException;
 
-public class Listeners extends BaseTestProp implements ITestListener {
+public class Listeners extends BaseTestPropNG implements ITestListener {
     ExtentReports extent = ExtentReporterNG.getReportObject();
     ExtentTest testCase;
     ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
