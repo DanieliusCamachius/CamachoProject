@@ -18,7 +18,7 @@ public class StepDefinitionsShopSite extends BaseTestProp {
         launchApplication();
         launchShoppingObjects();
 
-        loginPage.goTo();
+        loginPage.goTo(); /**CHECK IF NEEDED**/
     }
 
     @Given("I am logged in with {string} and password {string}")

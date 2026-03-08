@@ -34,6 +34,11 @@ public class AbstractComponent {
         wait.until(ExpectedConditions.visibilityOf(ele));
     }
 
+    public void waitForElementToDisappear(By findBy) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(findBy));
+    }
+
     public void waitForElementToDisappear(WebElement ele) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.invisibilityOf((ele)));

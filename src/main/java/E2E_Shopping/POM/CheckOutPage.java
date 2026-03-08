@@ -34,7 +34,7 @@ public class CheckOutPage extends AbstractComponent {
         Actions a = new Actions(driver);
         a.sendKeys(countryDropDown,countryName).build().perform();
 
-        waitForWebElementToAppear(By.cssSelector("button.ta-item")); //
+        waitForWebElementToAppear(results); //
         selectedCountry.click();
     }
 
