@@ -6,7 +6,8 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features= {
                 //"src/test/resources/features/CucumberShop/fruitTable.feature"
-                "src/test/resources/features/CucumberShop/errorValidationCucumber.feature"
+                //"src/test/resources/features/CucumberShop/errorValidationCucumber.feature"
+                "src/test/resources/features/CucumberShop/submitOrderCucumber.feature"
                 //"src/test/resources/features/CucumberShop/"
         },
         tags="@tag",

@@ -1,5 +1,6 @@
 package stepDefinitionsCucumber;
 
+import E2E.CucumberHooks.Hooks;
 import E2E.TestComponents.BaseTestPropCucumber;
 import E2E_Shopping.POM.*;
 import io.cucumber.java.en.Given;
@@ -9,14 +10,20 @@ import org.testng.Assert;
 
 import java.io.IOException;
 
-public class StepDefinitionsShopSite extends BaseTestPropCucumber {
+public class StepDefinitionsShopSite{
     public ConfirmationPage confirmationPage;
+    public LoginPage loginPage;
+    public ProductCatalog productCatalog;
+    public CartPage cartPage;
+    public CheckOutPage checkOutPage;
+
+
+    public StepDefinitionsShopSite() { }
 
     @Given("I landed on Ecommerce Page")
     public void goToLoginPage() throws IOException {
-        launchShoppingApplication();
-        launchShoppingObjects();
 
+        loginPage = new LoginPage(Hooks.driver);
         loginPage.goTo(); /**CHECK IF NEEDED**/
     }
 
@@ -27,11 +34,16 @@ public class StepDefinitionsShopSite extends BaseTestPropCucumber {
 
     @When("I add the product {string} to Cart")
     public void addProductToCart(String product) {
+        productCatalog = new ProductCatalog(Hooks.driver);
+
         productCatalog.addProductToCart(product);
     }
 
     @When("I Checkout {string} and submit the order")
     public void checkoutCart(String product) {
+        cartPage= new CartPage(Hooks.driver);
+        checkOutPage = new CheckOutPage(Hooks.driver);
+
         productCatalog.clickCartHeader();
         cartPage.VerifyProductDisplay(product);
         cartPage.goToCheckout();
@@ -43,12 +55,10 @@ public class StepDefinitionsShopSite extends BaseTestPropCucumber {
     public void checkCheckoutMessage(String expectedMessage) {
         String message = confirmationPage.getConfirmationMessage();
         Assert.assertTrue(message.equalsIgnoreCase(expectedMessage));
-        driver.close(); // TODO
     }
 
     @Then("{string} message is displayed on Login Page")
     public void messageIsDisplayedOnLoginPage(String expectedMessage) {
         Assert.assertEquals(expectedMessage, loginPage.checkForErrorMessage());
-        driver.close(); //TODO add Hooks
     }
 }

@@ -1,5 +1,6 @@
 package E2E.TestComponents;
 
+import E2E.CucumberHooks.Hooks;
 import E2E_Shopping.POM.CartPage;
 import E2E_Shopping.POM.CheckOutPage;
 import E2E_Shopping.POM.LoginPage;
@@ -58,22 +59,4 @@ public class BaseTestPropCucumber{
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         return driver;
     }
-
-
-    public void launchShoppingApplication() throws IOException {
-        loginPage = new LoginPage(driver);
-        loginPage.goTo();
-    }
-
-    public void launchFruitApplication() throws IOException {
-        fruitTable= new FruitTable(driver);
-        fruitTable.goTo();
-    }
-
-    public void launchShoppingObjects() {
-        productCatalog = new ProductCatalog(driver);
-        cartPage = new CartPage(driver);
-        checkOutPage = new CheckOutPage(driver);
-    }
-
 }
