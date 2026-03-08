@@ -3,13 +3,17 @@ package stepDefinitionsCucumber;
 import E2E.CucumberHooks.Hooks;
 import FruitTableDev.FruitPOM.FruitTable;
 import FruitTableDev.DTO.FruitDTO;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import static FruitTableDev.FruitPOM.FruitTable.compareLists;
 import static FruitTableDev.FruitPOM.FruitTable.getTableData;
@@ -38,15 +42,30 @@ public class StepDefinitionsFruitSite {
         fruitTable.uploadXml(path);
     }
 
-    @Then("Then Notification of successful upload is displayed")
+    @Then("Notification of successful upload is displayed")
     public void verifyUploadNotification() {
         fruitTable.checkUploadNotification();
     }
 
     @Then("Table data is valid")
-    public void netDataValidation() {
-        List<FruitDTO> fruits = getTableData(Hooks.driver);
-        List<FruitDTO> expectedFruits = createFruitList();
-        Assert.assertTrue(compareLists(expectedFruits, fruits));
+    public void tableDataValidation(DataTable dataTable) {
+        List<FruitDTO> actualFruits = getTableData(Hooks.driver);
+        //List<FruitDTO> expectedFruits = createFruitList();
+
+        // convert  DataTable to List<Map<String, String>>
+        List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
+
+        // row to FruitDTO
+        List<FruitDTO> expectedFruits = rows.stream()
+                .map(row -> new FruitDTO(
+                        Integer.parseInt(row.get("serialNumber")),
+                        row.get("name"),
+                        row.get("color"),
+                        Double.parseDouble(row.get("price")),
+                        row.get("season")
+                ))
+                .collect(Collectors.toCollection(ArrayList::new)); //  LISTA MUTÁVEL
+
+        Assert.assertTrue(compareLists(expectedFruits, actualFruits));
     }
 }
