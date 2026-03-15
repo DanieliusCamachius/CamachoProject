@@ -14,21 +14,19 @@
             <id>Regression</id>
             <!-- mvn test -PRegression -->
             <build>
-                <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-                    <plugins>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-surefire-plugin</artifactId>
-                            <version>3.0.0-M6</version>
-                            <configuration>
-                                <suiteXmlFiles>
-                                    <suiteXmlFile>src/test/testSuites/testingNG.xml</suiteXmlFile>
-                                </suiteXmlFiles>
-                                <testNGArtifactName>none</testNGArtifactName> <!-- Evita que o surefire tente usar o TestNG para rodar os testes -->
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M6</version>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>src/test/testSuites/testingNG.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                            <testNGArtifactName>none</testNGArtifactName>
+                        </configuration>
+                    </plugin>
+                </plugins>
             </build>
 
         </profile>
@@ -37,22 +35,19 @@
             <id>ErrorTests</id>
 
             <build>
-                <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-                    <plugins>
-
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-surefire-plugin</artifactId>
-                            <version>3.0.0-M6</version>
-                            <configuration>
-                                <suiteXmlFiles>
-                                    <suiteXmlFile>src/test/testSuites/testingNG_ERROR_TEST.xml</suiteXmlFile>
-                                </suiteXmlFiles>
-                                <testNGArtifactName>none</testNGArtifactName> <!-- Evita que o surefire tente usar o TestNG para rodar os testes -->
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M6</version>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>src/test/testSuites/testingNG_ERROR_TEST.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                            <testNGArtifactName>none</testNGArtifactName>
+                        </configuration>
+                    </plugin>
+                </plugins>
             </build>
 
         </profile>
@@ -61,22 +56,19 @@
             <id>CucumberTests</id>
 
             <build>
-                <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-                    <plugins>
-
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-surefire-plugin</artifactId>
-                            <version>3.0.0-M6</version>
-                            <configuration>
-                                <includes>
-                                    <suiteXmlFile>**/TestRunner.java</suiteXmlFile>
-                                </includes>
-                                    <testNGArtifactName>none</testNGArtifactName> <!-- Evita que o surefire tente usar o TestNG para rodar os testes -->
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M6</version>
+                        <configuration>
+                            <includes>
+                                <include>**/TestRunner.java</include>
+                            </includes>
+                            <testNGArtifactName>none</testNGArtifactName>
+                        </configuration>
+                    </plugin>
+                </plugins>
             </build>
 
         </profile>
