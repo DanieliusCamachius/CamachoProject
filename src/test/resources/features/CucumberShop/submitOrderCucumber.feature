@@ -1,10 +1,9 @@
-@tag
+@tag @Regression
 Feature: Purchase order from Ecommerce Website
 
   Background:
     Given I landed on Ecommerce Page
 
-  @Regression
   Scenario Outline: Positive scenario of submitting order
     Given I am logged in with <name> and password <password>
     When I add the product <productName> to Cart
