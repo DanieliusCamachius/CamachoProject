@@ -15,19 +15,19 @@ pipeline {
             }
         }
 
-        stage('Run Cucumber Tests With Tag') {
+        stage('Run All @Regression Tests') {
             steps {
                 sh "mvn -PCucumberTests test -Dcucumber.filter.tags='@Regression'"
             }
         }
 
-        stage('Run CucumberFruits Feature') {
+        stage('Run CucumberFruits Tests') {
             steps {
                 sh "mvn -PCucumberTests -Dtest=TestRunnerFruitTable test"
             }
         }
 
-        stage('Run CucumberShop Feature') {
+        stage('Run CucumberShop Tests') {
             steps {
                 sh "mvn -PCucumberTests -Dtest=TestRunner test"
             }

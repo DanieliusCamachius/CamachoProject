@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
         features= {
                 "src/test/resources/features/CucumberFruits/fruitTable.feature"
         },
-        tags="@tag",
+        tags="",  // Empty tags - allows Jenkins to control filtering with -Dcucumber.filter.tags
         glue={"stepDefinitionsCucumber","E2E.CucumberHooks"},
         monochrome = true, //reporting
         plugin = {"html:reports/CucumberReporter/cucumber.html"}

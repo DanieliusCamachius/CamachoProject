@@ -11,7 +11,7 @@ import io.cucumber.testng.CucumberOptions;
                 //"src/test/resources/features/CucumberShop/registrationCucumber.feature"
                 //"src/test/resources/features/CucumberShop/"
         },
-        tags="@tag",
+        tags="",  // Empty tags - allows Jenkins to control filtering with -Dcucumber.filter.tags
         glue={"stepDefinitionsCucumber","E2E.CucumberHooks"},
         monochrome = true, //reporting
         plugin = {"html:reports/CucumberReporter/cucumber.html"}
