@@ -17,7 +17,7 @@ pipeline {
 
         stage('Run Cucumber Tests With Tag') {
             steps {
-                sh "mvn test -Dcucumber.filter.tags='@regression'"
+                sh "mvn test -Dcucumber.filter.tags='@Regression'"
                 // ou: sh "mvn test -Dtest=RunCucumberTest"
             }
         }
