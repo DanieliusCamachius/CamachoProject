@@ -15,13 +15,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M6</version>
-                <configuration>
-                    <!-- Skip TestNG tests by default - run Cucumber tests instead -->
-                    <testNGArtifactName>none</testNGArtifactName>
-                    <excludes>
-                        <exclude>**/*TestNG*.java</exclude>
-                    </excludes>
-                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -40,7 +33,6 @@
                             <suiteXmlFiles>
                                 <suiteXmlFile>src/test/testSuites/testingNG.xml</suiteXmlFile>
                             </suiteXmlFiles>
-                            <testNGArtifactName>none</testNGArtifactName>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -61,7 +53,6 @@
                             <suiteXmlFiles>
                                 <suiteXmlFile>src/test/testSuites/testingNG_ERROR_TEST.xml</suiteXmlFile>
                             </suiteXmlFiles>
-                            <testNGArtifactName>none</testNGArtifactName>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -81,8 +72,8 @@
                         <configuration>
                             <includes>
                                 <include>**/TestRunner.java</include>
+                                <include>**/TestRunnerFruitTable.java</include>
                             </includes>
-                            <testNGArtifactName>none</testNGArtifactName>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -131,25 +122,11 @@
             <version>5.0.9</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/dev.failsafe/failsafe -->
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
-            <groupId>dev.failsafe</groupId>
-            <artifactId>failsafe</artifactId>
-            <version>3.3.2</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>7.33.0</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-testng</artifactId>
-            <version>7.33.0</version>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.21.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->

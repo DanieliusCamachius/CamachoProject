@@ -17,22 +17,25 @@ pipeline {
 
         stage('Run Cucumber Tests With Tag') {
             steps {
-                sh "mvn test -Dcucumber.filter.tags='@Regression'"
-                // ou: sh "mvn test -Dtest=RunCucumberTest"
+                sh "mvn -PCucumberTests test -Dcucumber.filter.tags='@Regression'"
             }
         }
 
         stage('Run CucumberFruits Feature') {
             steps {
-                sh "mvn -Dtest=TestRunnerFruitTable test -Dcucumber.filter.tags='@Fruits'"
-                // ou: sh "mvn test -Dtest=RunCucumberTest"
+                sh "mvn -PCucumberTests -Dtest=TestRunnerFruitTable test"
+            }
+        }
+
+        stage('Run CucumberShop Feature') {
+            steps {
+                sh "mvn -PCucumberTests -Dtest=TestRunner test"
             }
         }
 
         stage('Archive Reports') {
             steps {
                 junit 'target/surefire-reports/*.xml'
-                cucumber fileIncludePattern: 'target/cucumber-reports/*.json'
             }
         }
     }
