@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven3'   // Nome da instalação configurada no Jenkins
-        jdk 'JDK21'      // Nome da instalação configurada no Jenkins
+        maven 'Maven3'
+        jdk 'JDK21'
     }
 
     stages {
@@ -36,8 +36,8 @@ pipeline {
 
         stage('Archive Reports') {
             steps {
-                junit 'reports/pipelineReports/*.xml'
-                cucumber fileIncludePattern: 'reports/pipelineReports/*.json'
+                junit 'target/surefire-reports/*.xml'
+                cucumber fileIncludePattern: 'target/cucumber-reports/*.json'
             }
         }
     }
