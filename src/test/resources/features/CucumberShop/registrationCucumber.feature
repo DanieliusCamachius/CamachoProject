@@ -1,8 +1,6 @@
 @tag
 Feature: User Registration
 
-  # GitHubCopilot
-  @Regression
   Scenario Outline: Positive scenario of user registration
     Given I am on the registration page
     When I complete registration with first name "<firstName>", last name "<lastName>", email "<email>", phone "<phone>", occupation "<occupation>", gender "<gender>", password "<password>", confirm password "<confirmPassword>"

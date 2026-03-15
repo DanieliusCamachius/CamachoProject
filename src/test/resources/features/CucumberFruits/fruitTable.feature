@@ -1,7 +1,7 @@
 @tag
 Feature: Validate Table Change
 
-  @Regression
+  @Regression @Fruits
   Scenario Outline: Positive scenario of submitting order
     Given I landed on fruit table page
     And I click download button
