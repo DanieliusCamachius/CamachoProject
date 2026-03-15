@@ -70,6 +70,7 @@
                                 <includes>
                                     <suiteXmlFile>**/TestRunner.java</suiteXmlFile>
                                 </includes>
+                                    <testNGArtifactName>none</testNGArtifactName> <!-- Evita que o surefire tente usar o TestNG para rodar os testes -->
                             </configuration>
                         </plugin>
                     </plugins>
