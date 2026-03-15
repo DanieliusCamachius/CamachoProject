@@ -24,6 +24,7 @@
                                 <suiteXmlFiles>
                                     <suiteXmlFile>src/test/testSuites/testingNG.xml</suiteXmlFile>
                                 </suiteXmlFiles>
+                                <testNGArtifactName>none</testNGArtifactName> <!-- Evita que o surefire tente usar o TestNG para rodar os testes -->
                             </configuration>
                         </plugin>
                     </plugins>
@@ -47,6 +48,7 @@
                                 <suiteXmlFiles>
                                     <suiteXmlFile>src/test/testSuites/testingNG_ERROR_TEST.xml</suiteXmlFile>
                                 </suiteXmlFiles>
+                                <testNGArtifactName>none</testNGArtifactName> <!-- Evita que o surefire tente usar o TestNG para rodar os testes -->
                             </configuration>
                         </plugin>
                     </plugins>
