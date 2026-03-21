@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Hooks extends BaseTestPropCucumber {
 
-    public static WebDriver driver;
+    public static WebDriver driver; // static WebDriver to be shared across step definitions (belongs to class not to an object)
     private BaseTestPropCucumber base;
 
     @Before
