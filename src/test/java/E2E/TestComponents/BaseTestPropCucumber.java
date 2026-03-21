@@ -1,38 +1,23 @@
 package E2E.TestComponents;
 
-import E2E.CucumberHooks.Hooks;
 import E2E_Shopping.POM.CartPage;
 import E2E_Shopping.POM.CheckOutPage;
 import E2E_Shopping.POM.LoginPage;
 import E2E_Shopping.POM.ProductCatalog;
 import FruitTableDev.FruitPOM.FruitTable;
-import io.cucumber.core.internal.com.fasterxml.jackson.core.type.TypeReference;
-import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
-import io.cucumber.java.After;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.time.Duration;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Properties;
 
 public class BaseTestPropCucumber{
 
     public WebDriver driver; // global variable
-    public LoginPage loginPage;
-    public ProductCatalog productCatalog;
-    public CartPage cartPage;
-    public CheckOutPage checkOutPage;
-    public FruitTable fruitTable;
+
 
     public WebDriver initializeDriver() throws IOException {
         // Properties class can read global properties

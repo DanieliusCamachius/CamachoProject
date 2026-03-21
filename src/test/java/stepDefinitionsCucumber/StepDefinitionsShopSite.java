@@ -36,7 +36,7 @@ public class StepDefinitionsShopSite{
     public void goToLoginPage() throws IOException {
 
         loginPage = new LoginPage(Hooks.driver);
-        loginPage.goTo(); /**CHECK IF NEEDED**/
+        loginPage.goTo();
     }
 
     /**
